@@ -1,9 +1,17 @@
-name = "open-property"
+name = "slckproperties"
 main = "src/server/index.ts"
 compatibility_date = "2025-04-01"
 compatibility_flags = ["nodejs_compat"]
 
 [[d1_databases]]
 binding = "DB"
-database_name = "open-property-db"
-database_id = "local"
+database_name = "slckproperties-db"
+database_id = "ae4355ee-4149-49d5-b99a-17acc44c3a8a"
+
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
+
+[[routes]]
+pattern = "slckproperties.tokenset.cloud"
+custom_domain = true
