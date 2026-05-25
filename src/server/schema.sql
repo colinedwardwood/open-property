@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS settings (
 INSERT OR IGNORE INTO settings (key, value) VALUES ('default_rent_due_day', '1');
 INSERT OR IGNORE INTO settings (key, value) VALUES ('late_fee_amount', '50');
 INSERT OR IGNORE INTO settings (key, value) VALUES ('late_fee_grace_days', '5');
-INSERT OR IGNORE INTO settings (key, value) VALUES ('currency', 'USD');
+INSERT OR IGNORE INTO settings (key, value) VALUES ('currency', 'CAD');
 
 -- ── Properties (buildings) ───────────────────────────────────────
 CREATE TABLE IF NOT EXISTS properties (
@@ -170,15 +170,15 @@ CREATE INDEX IF NOT EXISTS idx_applications_status ON applications(status);
 
 -- ── Seed data (only inserted on first run) ───────────────────────
 INSERT INTO properties (name, type, address, city, state, zip, color)
-SELECT 'Oakwood Estate', 'single_family', '210 Oakwood Ln', 'Austin', 'TX', '78704', 'emerald'
+SELECT 'Oakwood Estate', 'single_family', '210 Oakwood Ln', 'Victoria', 'BC', 'V8R 2A1', 'emerald'
 WHERE NOT EXISTS (SELECT 1 FROM properties);
 
 INSERT INTO properties (name, type, address, city, state, zip, color)
-SELECT 'Honeybee Hideaway', 'single_family', '88 Bramble Ct', 'Austin', 'TX', '78704', 'amber'
+SELECT 'Honeybee Hideaway', 'single_family', '88 Bramble Ct', 'Halifax', 'NS', 'B3H 1A1', 'amber'
 WHERE (SELECT COUNT(*) FROM properties) = 1;
 
 INSERT INTO properties (name, type, address, city, state, zip, color)
-SELECT '308 Mission Apartments', 'multi_family', '308 Mission St', 'Austin', 'TX', '78702', 'sky'
+SELECT '308 Mission Apartments', 'multi_family', '308 Mission St', 'Vancouver', 'BC', 'V5T 1S5', 'sky'
 WHERE (SELECT COUNT(*) FROM properties) = 2;
 
 INSERT INTO units (property_id, name, bedrooms, bathrooms, sqft, market_rent, status)
@@ -202,13 +202,13 @@ SELECT 3, 'Unit 3', 2, 1, 850, 1850, 'occupied'
 WHERE (SELECT COUNT(*) FROM units) = 4;
 
 INSERT INTO vendors (name, category, phone, color)
-SELECT 'Emerald Pool Service', 'general', '512-555-0144', 'emerald'
+SELECT 'Emerald Pool Service', 'general', '604-555-0144', 'emerald'
 WHERE NOT EXISTS (SELECT 1 FROM vendors);
 
 INSERT INTO vendors (name, category, phone, color)
-SELECT 'Hill Country Plumbing', 'plumber', '512-555-0188', 'sky'
+SELECT 'West Coast Plumbing', 'plumber', '604-555-0188', 'sky'
 WHERE (SELECT COUNT(*) FROM vendors) = 1;
 
 INSERT INTO vendors (name, category, phone, color)
-SELECT 'Bright Spark Electric', 'electrician', '512-555-0102', 'amber'
+SELECT 'Bright Spark Electric', 'electrician', '902-555-0102', 'amber'
 WHERE (SELECT COUNT(*) FROM vendors) = 2;

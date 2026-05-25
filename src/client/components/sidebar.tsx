@@ -6,7 +6,6 @@ import {
   Settings,
   LayoutDashboard,
   Receipt,
-  Home,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Route } from "@/hooks/use-router";
@@ -52,11 +51,9 @@ export function Sidebar({
 }) {
   return (
     <aside className="hidden w-60 shrink-0 flex-col border-r bg-sidebar text-sidebar-foreground md:flex">
-      <div className="flex h-14 items-center gap-2 border-b px-4">
-        <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-          <Home className="h-4 w-4" />
-        </div>
-        <span className="text-base font-semibold tracking-tight">Open Property</span>
+      <div className="flex h-16 items-center gap-3 border-b px-4">
+        <img src="/logo.png" alt="SLCK Properties" className="h-10 w-10 rounded-full" />
+        <span className="text-base font-semibold tracking-tight">SLCK Properties</span>
       </div>
 
       <nav className="flex-1 overflow-y-auto px-2 py-3">

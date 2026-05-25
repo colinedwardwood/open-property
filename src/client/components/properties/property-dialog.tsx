@@ -138,12 +138,12 @@ export function PropertyDialog({ open, onOpenChange, property, onSaved }: Props)
               <Input id="prop-city" value={city} onChange={(e) => setCity(e.target.value)} />
             </div>
             <div>
-              <Label htmlFor="prop-state">State</Label>
-              <Input id="prop-state" value={stateName} onChange={(e) => setStateName(e.target.value)} />
+              <Label htmlFor="prop-state">Province</Label>
+              <Input id="prop-state" value={stateName} onChange={(e) => setStateName(e.target.value)} placeholder="BC" />
             </div>
             <div>
-              <Label htmlFor="prop-zip">Zip</Label>
-              <Input id="prop-zip" value={zip} onChange={(e) => setZip(e.target.value)} />
+              <Label htmlFor="prop-zip">Postal code</Label>
+              <Input id="prop-zip" value={zip} onChange={(e) => setZip(e.target.value)} placeholder="V6B 1A1" />
             </div>
           </div>
           <div>

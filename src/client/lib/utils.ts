@@ -32,8 +32,8 @@ export function formatDate(iso: string | null | undefined, opts?: Intl.DateTimeF
   return d.toLocaleDateString(undefined, opts ?? { year: "numeric", month: "short", day: "numeric" });
 }
 
-/** Format a number as currency. Uses USD by default. */
-export function formatMoney(n: number | null | undefined, currency = "USD"): string {
+/** Format a number as currency. Uses CAD by default. */
+export function formatMoney(n: number | null | undefined, currency = "CAD"): string {
   if (n === null || n === undefined || Number.isNaN(n)) return "—";
   return new Intl.NumberFormat(undefined, { style: "currency", currency, maximumFractionDigits: 0 }).format(n);
 }
